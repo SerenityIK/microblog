@@ -1,4 +1,5 @@
 **/__pycache__
 **/.vim
+logs
 *.db
 venv
