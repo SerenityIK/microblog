@@ -1,32 +1,41 @@
-<html>
-  <head>
-    {% if title %}
-    <title>{{ title }} - Microblog</title>
-    {% else %}
-    <title>Welcome to Microblog</title>
-    {% endif %}
-  </head>
-  <body>
-    <div>Microblog:
-      <a href="{{ url_for('index') }}">Home</a>
-      <a href="{{ url_for('explore') }}">Explore</a>
-      {% if current_user.is_anonymous %}
-      <a href="{{ url_for('login') }}">Login</a>
-      {% else %}
-      <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
-      <a href="{{ url_for('logout') }}">Logout</a>
-      {% endif %}
+{% extends 'material/base.html' %}
+
+{% block title %}
+{% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
+{% endblock %}
+
+{% block navbar %}
+  <nav>
+    <div class="nav-wrapper">
+      <a href="{{ url_for('index') }}" class="brand-logo">Microblog</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	<li><a href="{{ url_for('index') }}">Home</a></li>
+	<li><a href="{{ url_for('explore') }}">Explore</a></li>
+	{% if current_user.is_anonymous %}
+	<li><a href="{{ url_for('login') }}">Login</a></li>
+	{% else %}
+	<li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
+	<li><a href="{{ url_for('logout') }}">Logout</a></li>
+	{% endif %}
+      </ul>
     </div>
-    <hr>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    <ul>
       {% for message in messages %}
-      <li>{{ message }}</li>
+      <div id="card-alert" class="card-red">
+	<div class="card-content white-text">
+	  {{ message }}
+	</div>
+      </div>
       {% endfor %}
     </ul>
     {% endif %}
     {% endwith %}
-    {% block content %}{% endblock %}
-  </body>
-</html>
+    {% block app_content %}{% endblock %}
+  </div>
+{% endblock %}
