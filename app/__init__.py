@@ -6,6 +6,7 @@ from flask_login import LoginManager
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_mail import Mail
 from flask_materialize import Material
+from flask_moment import Moment
 import logging
 import os
 
@@ -19,6 +20,8 @@ login.login_view = 'login'
 mail = Mail(app)
 # init materialize css framework
 material = Material(app)
+# init moment.js
+moment = Moment(app)
 
 
 if not app.debug:
