@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -7,6 +7,7 @@ from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_mail import Mail
 from flask_materialize import Material
 from flask_moment import Moment
+from flask_babel import Babel
 import logging
 import os
 
@@ -22,6 +23,8 @@ mail = Mail(app)
 material = Material(app)
 # init moment.js
 moment = Moment(app)
+# translations
+babel = Babel(app)
 
 
 if not app.debug:
@@ -50,6 +53,11 @@ if not app.debug:
         app.logger.addHandler(file_handler)
         app.logger.setLevel(logging.INFO)
         app.logger.info('Microblog startup')
+
+
+@babel.localselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 from app import routes, models
