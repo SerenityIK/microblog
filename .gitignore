@@ -3,3 +3,4 @@
 logs
 *.db
 venv
+messages.pot
