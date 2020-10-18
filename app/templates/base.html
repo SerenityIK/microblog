@@ -8,21 +8,21 @@
   <nav>
     <div class="nav-wrapper">
       <a href="{{ url_for('index') }}" class="brand-logo">Microblog</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
 	<li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
 	<li><a href="{{ url_for('explore') }}">{{ _('Explore') }}</a></li>
 	{% if current_user.is_anonymous %}
-	<li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
+	<li class="active"><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
 	{% else %}
 	<li><a href="{{ url_for('user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
-	<li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
+	<li class="active"><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
 	{% endif %}
       </ul>
     </div>
   </nav>
 
-  <ul class="sidenav" id="mobile-demo">
+  <ul class="sidenav" id="mobile">
     <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
     <li><a href="{{ url_for('explore') }}">{{ _('Explore') }}</a></li>
     {% if current_user.is_anonymous %}
