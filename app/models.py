@@ -1,3 +1,4 @@
+import jwt
 from app import current_app, db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -5,7 +6,6 @@ from flask_login import UserMixin
 from app import login
 from hashlib import md5
 from time import time
-import jwt
 
 
 followers = db.Table(
@@ -80,6 +80,7 @@ class User(UserMixin, db.Model):
 
 
 class Post(db.Model):
+    __searchable__ = ['body']
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
