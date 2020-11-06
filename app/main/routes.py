@@ -5,11 +5,10 @@ from flask_login import current_user, login_required
 from flask_babel import _, get_locale
 from guess_language import guess_language
 from app import db
-from app.main.forms import EditProfileForm, EmptyForm, PostForm
+from app.main.forms import EditProfileForm, EmptyForm, PostForm, SearchForm
 from app.models import User, Post
 from app.translate import translate
 from app.main import bp
-from app.main.forms import SearchForm
 
 
 @bp.before_app_request
