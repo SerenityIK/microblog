@@ -55,6 +55,22 @@
 
 {% block content %}
   <div class="container">
+    {% if current_user.is_authenticated %}
+    {% with tasks = current_user.get_tasks_in_progress() %}
+    {% if tasks %}
+      {% for task in tasks %}
+      <div class="card red lighten-5">
+	<div class="card-content red-text">
+	  {{ task.description }}
+	  <div class="progress">
+	    <div id="{{ task.id }}-progress" class="determinate" style="width: {{ task.get_progress() }}%"></div>
+	  </div>
+	</div>
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% endif %}
     {% with messages = get_flashed_messages() %}
     {% if messages %}
       {% for message in messages %}
@@ -103,8 +119,16 @@
             $.ajax('{{ url_for('main.notifications') }}?since=' + since).done(
               function(notifications) {
                 for (var i = 0; i < notifications.length; i++) {
-                  if (notifications[i].name == 'unread_message_count')
-                    set_message_count(notifications[i].data);
+		  switch (notifications[i].name) {
+		    case 'unread_message_count':
+		      set_message_count(notifications[i].data);
+		      break;
+		    case 'task_progress':
+		      set_task_progress(
+			notifications[i].data.task_id,
+			notifications[i].data.progress);
+		      break;
+		  }
                   since = notifications[i].timestamp;
                 }
               }
@@ -112,5 +136,8 @@
           }, 10000);
       });
     {% endif %}
+    function set_task_progress(task_id, progress) {
+      $('#' + task_id + '-progress').text(progress); 
+    }
   </script>
 {% endblock %}
