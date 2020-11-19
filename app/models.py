@@ -147,7 +147,7 @@ class User(UserMixin, db.Model):
         return n
 
     def launch_task(self, name, description, *args, **kwargs):
-        rq_job = current_app.task_queue.enqueue('app.tasks. ' + name, self.id,
+        rq_job = current_app.task_queue.enqueue('app.tasks.' + name, self.id,
                                                 *args, **kwargs)
         task = Task(id=rq_job.get_id(), name=name, description=description,
                     user=self)
@@ -206,7 +206,7 @@ class Task(db.Model):
     def get_rq_job(self):
         try:
             rq_job = rq.job.Job.fetch(self.id, connection=current_app.redis)
-        except (redis.exceptions.Redis.Error, rq.exceptions.NoSuchJobError):
+        except (redis.exceptions.RedisError, rq.exceptions.NoSuchJobError):
             return None
         return rq_job
 
