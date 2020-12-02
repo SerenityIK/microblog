@@ -1,7 +1,7 @@
 """users table
 
 Revision ID: e8340d1fe502
-Revises: 
+Revises:
 Create Date: 2020-09-17 21:02:39.383342
 
 """
