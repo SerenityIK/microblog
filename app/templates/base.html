@@ -13,7 +13,7 @@
       <ul class="left hide-on-med-and-down">
 	<form method="get" action="{{ url_for('main.search') }}">
 	  <div class="input-field">
-	    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }} 
+	    {{ g.search_form.q(size=20, class='form-control', placeholder=g.search_form.q.label.text) }}
 	  </div>
 	</form>
       </ul>
@@ -79,7 +79,7 @@
 	  {{ message }}
 	</div>
       </div>
-      {% endfor %}
+    :  {% endfor %}
     </ul>
     {% endif %}
     {% endwith %}
@@ -140,4 +140,27 @@
     });
     {% endif %}
   </script>
+{% endblock %}
+
+{% block footer %}
+<br>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col 14 offset-12 s12">
+	<h5 class="white-text">Links</h5>
+	<ul>
+	  <li><a class="grey-text text-lighten-3" href="{{ url_for('main.index') }}">{{ _('Home') }}</a></li>
+	  <li><a class="grey-text text-lighten-3" href="{{ url_for('main.explore') }}">{{ _('Explore') }}</a></li>
+	</ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 Serenity
+    <a class="grey-text text-lighten-4 right" href="https://github.com/SerenityIK/microblog">Github</a>
+    </div>
+  </div>
+</footer>
 {% endblock %}
