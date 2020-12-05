@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  flex-direction: column;
+  }
+
+#main {
+  min-height: 100vh;
+  flex: 1 0 auto;
+  }
+
+table#user {
+  border-collapse: unset !important;
+  }
