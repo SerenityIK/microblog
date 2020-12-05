@@ -88,7 +88,9 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.email = form.email.data
         current_user.about_me = form.about_me.data
-        current_user.set_password(form.password.data)
+        valid_pass = form.password.data
+        if valid_pass:
+            current_user.set_password(valid_pass)
         db.session.commit()
         flash(_('Your changes have been saved.'))
         return redirect(url_for('main.edit_profile'))

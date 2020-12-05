@@ -2,7 +2,7 @@ from flask import request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextField, PasswordField
 from wtforms.validators import ValidationError, DataRequired, Length, Email, \
-    EqualTo
+    EqualTo, Optional
 from flask_babel import _, lazy_gettext as _l
 from app.models import User
 
@@ -12,9 +12,9 @@ class EditProfileForm(FlaskForm):
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     about_me = TextField(_l('About me'),
                          validators=[Length(min=0, max=140)])
-    password = PasswordField(_l('Password'), validators=[DataRequired()])
+    password = PasswordField(_l('Password'), validators=[Optional()])
     password2 = PasswordField(
-        _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')]
+        _l('Repeat Password'), validators=[EqualTo('password')]
     )
     submit = SubmitField(_l('Submit'))
 
