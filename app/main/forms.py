@@ -1,6 +1,6 @@
 from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, PasswordField
+from wtforms import StringField, SubmitField, TextField, PasswordField
 from wtforms.validators import ValidationError, DataRequired, Length, Email, \
     EqualTo
 from flask_babel import _, lazy_gettext as _l
@@ -10,8 +10,8 @@ from app.models import User
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
-    about_me = TextAreaField(_l('About me'),
-                             validators=[Length(min=0, max=140)])
+    about_me = TextField(_l('About me'),
+                         validators=[Length(min=0, max=140)])
     password = PasswordField(_l('Password'), validators=[DataRequired()])
     password2 = PasswordField(
         _l('Repeat Password'), validators=[DataRequired(), EqualTo('password')]
@@ -42,7 +42,7 @@ class EmptyForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField(_l('Say something'), validators=[DataRequired()])
+    post = TextField(_l('Say something'), validators=[DataRequired()])
     submit = SubmitField(_l('Submit'))
 
 
@@ -58,6 +58,6 @@ class SearchForm(FlaskForm):
 
 
 class MessageForm(FlaskForm):
-    message = TextAreaField(_l('Message'), validators=[
+    message = TextField(_l('Message'), validators=[
         DataRequired(), Length(min=0, max=140)])
     submit = SubmitField(_l('Submit'))
