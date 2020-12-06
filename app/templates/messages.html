@@ -2,9 +2,11 @@
 
 {% block app_content %}
   <h1>{{ _('Messages') }}</h1>
-  {% for post in messages %}
-    {% include '_post.html' %}
-  {% endfor %}
+  <div class="card grey lighten-5">
+    {% for post in messages %}
+      {% include '_post.html' %}
+    {% endfor %}
+  </div>
   <nav aria-label="...">
     <ul class="pager">
       <li class="previous{% if not prev_url %} disabled{% endif %}">
