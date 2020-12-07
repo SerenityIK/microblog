@@ -23,11 +23,13 @@ class RegistrationForm(FlaskForm):
     )
     submit = SubmitField(_l('Register'))
 
+    @staticmethod
     def validate_username(form, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError(_('Please use a different username.'))
 
+    @staticmethod
     def validate_email(form, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
