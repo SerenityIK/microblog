@@ -1,19 +1,20 @@
 # Microblog Flask-app
 
+Features
+========
+*  Material theme
+*  Private Messages
+*  Search with elasticsearch
+*  Redis background tasks
 
-**Features:**
------------
-* Material theme
-* Private Messages
-* Search with elasticsearch
-* Redis background tasks
+Quick Start
+===========
 
-**Quick Start**
------------
-* Get docker contaier:
+*  Get docker contaier:
 
   `docker pull docker.pkg.github.com/serenityik/microblog/microblog:0.1`
-* Run coommand:
+
+*  Run coommand:
 
   `docker run --name microblog -d -p 8000:5000 --rm -e SECRET_KEY=my-secret-key
   -e MAIL_SERVER=smtp.googlemail.com -e MAIL_PORT=587 -e MAIL_USE_TLS=true
