@@ -1,3 +1,7 @@
+'''
+Initializing application
+'''
+
 import logging
 import os
 from flask import Flask, request, current_app
