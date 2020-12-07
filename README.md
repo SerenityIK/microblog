@@ -1,15 +1,15 @@
 # Microblog Flask-app
 
-Features
-========
-*  Material theme
-*  Private Messages
-*  Search with elasticsearch
-*  Redis background tasks
-*  API with security tokens
+## Features
 
-Quick Start
-===========
+*   Material theme
+*   Private Messages
+*   Search with elasticsearch
+*   Redis background tasks
+*   API with security tokens
+
+## Quick Start
+
 **Get docker contaier**:
 
   `docker pull docker.pkg.github.com/serenityik/microblog/microblog:0.1`
@@ -25,8 +25,8 @@ Quick Start
   -e ELASTICSEARCH_URL=http://elasticsearch:9200
   microblog:0.1.1`
 
-API usage
-=========
+## API usage
+
 **User creation**:
 
   `POST http://localhost:5000/api/users username=<username> password=<password> password=<password> email=<email>`
