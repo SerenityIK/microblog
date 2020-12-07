@@ -9,5 +9,5 @@ body {
 }
 
 table#user {
-  border-collapse: unset !important;
+  border-collapse: unset;
 }
