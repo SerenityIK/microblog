@@ -1,6 +1,4 @@
-'''
-Initializing application
-'''
+"""Initializing application."""
 
 import logging
 import os

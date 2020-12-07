@@ -1,6 +1,4 @@
-'''
-Initializing main blueprint
-'''
+"""Initializing main blueprint."""
 
 from flask import Blueprint
 

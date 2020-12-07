@@ -1,4 +1,4 @@
-'''Classes of authentication forms'''
+"""Classes of authentication forms."""
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField

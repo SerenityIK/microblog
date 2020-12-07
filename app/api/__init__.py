@@ -1,6 +1,4 @@
-'''
-Initializing API
-'''
+"""Initializing API."""
 
 from flask import Blueprint
 

@@ -116,7 +116,7 @@ class User(db.Model, UserMixin, PaginatedAPIMixin):
     token_expiration = db.Column(db.DateTime)
 
     def __repr__(self):
-        '''Returning string "User <username>"'''
+        """Returning string 'User <username>'."""
         return '<User {}>'.format(self.username)
 
     def set_password(self, password):
@@ -247,6 +247,7 @@ class Post(SearchableMixin, db.Model):
     language = db.Column(db.String(5))
 
     def __repr__(self):
+        """Returning post body string."""
         return 'Post {}'.format(self.body)
 
 
@@ -258,6 +259,7 @@ class Message(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
     def __repr__(self):
+        """Returning message body string."""
         return '<Message {}>'.format(self.body)
 
 

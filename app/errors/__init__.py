@@ -1,3 +1,5 @@
+"""Initializing errors blueprint."""
+
 from flask import Blueprint
 
 

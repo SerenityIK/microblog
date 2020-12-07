@@ -1,6 +1,4 @@
-'''
-Classes of general forms
-'''
+"""Classes of general forms."""
 
 from flask import request
 from flask_wtf import FlaskForm
@@ -54,6 +52,7 @@ class SearchForm(FlaskForm):
     q = StringField(_l('Search'), validators=[DataRequired()])
 
     def __init__(self, *args, **kwargs):
+        """Search form class."""
         if 'formdata' not in kwargs:
             kwargs['formdata'] = request.args
         if 'csrf_enabled' not in kwargs:

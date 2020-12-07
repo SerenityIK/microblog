@@ -1,6 +1,4 @@
-'''
-Initializing authentication blueprint
-'''
+"""Initializing authentication blueprint."""
 
 from flask import Blueprint
 
