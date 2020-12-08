@@ -21,6 +21,7 @@ class EditProfileForm(FlaskForm):
     submit = SubmitField(_l('Submit'))
 
     def __init__(self, original_username, original_email, *args, **kwargs):
+        """Custom validators."""
         super(EditProfileForm, self).__init__(*args, **kwargs)
         self.original_username = original_username
         self.original_email = original_email
