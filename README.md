@@ -1,5 +1,7 @@
 # Microblog Flask-app
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/114214413b774f8ea8acb438c6f6312d)](https://app.codacy.com/gh/SerenityIK/microblog?utm_source=github.com&utm_medium=referral&utm_content=SerenityIK/microblog&utm_campaign=Badge_Grade)
+
 ## Features
 
 *   Material theme
