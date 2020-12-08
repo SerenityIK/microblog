@@ -12,7 +12,7 @@
 
 **Get docker contaier**:
 
-  `docker pull docker.pkg.github.com/serenityik/microblog/microblog:0.1`
+  `docker pull docker.pkg.github.com/serenityik/microblog/microblog:latest`
 
 **Run command**:
 
@@ -23,7 +23,7 @@
   -e DATABASE_URL=mysql+pymysql://microblog:<database-password>@dbserver/microblog
   --link elasticsearch:elasticsearch
   -e ELASTICSEARCH_URL=http://elasticsearch:9200
-  microblog:0.1.1`
+  microblog:latest`
 
 ## API usage
 
