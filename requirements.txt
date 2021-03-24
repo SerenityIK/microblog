@@ -1,4 +1,4 @@
-alembic==1.5.5
+alembic==1.5.8
 astroid==2.5.1
 Babel==2.9.0
 blinker==1.4
